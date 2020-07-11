@@ -1,8 +1,8 @@
 # ui.R
 library(shiny)
 
-shinyUI(fluidPage(
-
+shinyUI( fluidPage(
+  #titlePanel("Basic widgets"), hr(),
   # Application title
   headerPanel( "Hello Shiny! 001" ),
   
@@ -14,7 +14,9 @@ shinyUI(fluidPage(
                 "Number of observations002:", 
                 min = 0, 
                 max = 1000, 
-                value = 800)
+                value = 800),
+    hr(),
+    actionButton("action", label = "Action"),
   ),
   
   
