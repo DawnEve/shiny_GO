@@ -9,3 +9,4 @@ Warning message:
 
 ###########
 # v0.2 modify ui.R and server.R
+# v0.3 UI:add html display
