@@ -12,6 +12,9 @@ ui <- fluidPage(
     mainPanel( 
     	    h2("hist plot"),
     		plotOutput("histDt"),
+
+    		hr('Table 1:  details'),
+    		tableOutput('tb1')
     	)
 )
 
@@ -36,9 +39,13 @@ server <- function(input, output) {
 		len=rnorm( mean(arr) )
 		#
 		library(pheatmap)
-		pheatmap(x, scale='row', main=length(len) )
+		pheatmap(x, scale='row', main=paste0('Mean of intersts: ', length(len)) )
 		#hist(x, main=length(l))
     })
+
+    output$tb1=renderTable({
+    	x=dataInput()
+    	})
 }
 
 # Run the app ----
