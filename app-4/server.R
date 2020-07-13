@@ -1,7 +1,9 @@
 # server.R
 library(shiny)
 
-shinyServer(function(input, output) {
+shinyServer(function(input, output, session) {
+  cdata <- session$clientData
+
   #数据来源都来自于ui.R，比如obs
   output$distPlot <- renderPlot({
     dist <- rnorm( (input$obs+1)*10) #obs是从前端获取的
@@ -22,6 +24,23 @@ shinyServer(function(input, output) {
     delta=input$range[2]-input$range[1];
     paste0('range: ', input$range[1],' - ', input$range[2], "; delta=", delta)
   })
+
+  output$histDt=renderPlot({
+    source('fn1.R')
+
+
+    })
+
+  # Values from cdata returned as text
+  output$clientdataText <- renderText({
+    cnames <- names(cdata)
+
+    allvalues <- lapply(cnames, function(name) {
+      paste(name, cdata[[name]], sep = " = ")
+    })
+    paste(allvalues, collapse = "\n")
+  })
+
 
 })
 

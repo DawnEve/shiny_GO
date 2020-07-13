@@ -22,7 +22,15 @@ shinyUI( fluidPage(
   # 右边 主控件(默认右边)
   mainPanel( 
     textOutput("selected_var"),
-    textOutput("min_max")
+    textOutput("min_max"),
+
+    h2("hist plot"),
+    plotOutput("histDt"),
+
+    hr(),
+    h2('Session info'),
+    #pre( textOutput('clientdataText') )
+    verbatimTextOutput("clientdataText")
   )
   
 ))
