@@ -23,18 +23,25 @@ function trigger(element,eventName="change"){
 }
 
 
+//删除左右两端的空格
+function trim(str){ 
+	return str.replace(/(^\s*)|(\s*$)/g, "");
+}
 
-/* 示例 */
+
+// 绑定事件
 addEvent(window,'load',function(){
 	var $2=function(o){return document.getElementById(o);}
 
-	//提交按钮点击
+	//提交按钮点击时，统计数量
 	$2('submit').onclick=function(){
 		// alert('you clicked me!')
-		var text=$2('genes').value;
-		var arr=text.split(/[^0-9a-zA-Z\-]+/g)
+		var text=trim( $2('genes').value );
+		var arr=text.split(/[^0-9a-zA-Z\-\.]+/g)
 
 		$2('geneNumber').innerHTML=arr.length;
+		//console.log(arr)
+		//alert('Begin enrichment now, please waite.')
 	}
 
 	//输入框: 单击时全选

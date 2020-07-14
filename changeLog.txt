@@ -12,3 +12,4 @@ shiny_GO
 # v1.0 初步可以用人的enrichKEGG和enrichGO
 #
 # v1.0.1 修改文档
+# v1.0.2 修正基因分离正则表达式，允许基因名字中有-和.出现; KEGG 加dotplot

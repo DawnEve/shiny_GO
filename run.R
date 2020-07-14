@@ -1,6 +1,9 @@
 library(shiny)
 
+# 学习 shiny用
 #runApp("F:\\Temp\\shiny\\app-8", host="0.0.0.0", port=8888, display.mode = "showcase")
 
-runApp("F:\\Temp\\shiny", host="0.0.0.0", port=8888) # main
-# https://cloud.tencent.com/developer/article/1558051
+
+# GO 主程序
+runApp("F:\\Temp\\shiny", host="0.0.0.0", port=8888) # win
+#runApp("/home/wangjl/test/shiny_GO/", host="0.0.0.0", port=9993) # linux

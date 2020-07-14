@@ -32,7 +32,9 @@ shinyUI(fluidPage(
   mainPanel(
     h2('enrichKEGG'),
     tabsetPanel(type = "tabs",
-      tabPanel("barplotKEGG", plotOutput("barplotKEGG")),
+      tabPanel("barplotKEGG_top20", plotOutput("barplotKEGG")),
+      tabPanel("dotplot_top30", plotOutput("dotplotKEGG")),
+
       tabPanel("Table(Simple)", tableOutput("KEGG_TableSimple")),
       tabPanel("Table(Detail)", tableOutput("KEGG_Table"))
     ),
@@ -46,7 +48,11 @@ shinyUI(fluidPage(
       
       tabPanel("Table(Simple)", tableOutput("goTableSimple")),
       tabPanel("Table(Detail)", tableOutput("goTable"))
-    )
+    ),
+    hr(),
+    div(a('(Fork me at github) shiny_GO', href='https://github.com/dawneve/shiny_GO/', target="_blank"), 
+      class='githublink'),
+
 
   )
 

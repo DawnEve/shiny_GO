@@ -18,7 +18,7 @@ runApp("census-app", display.mode = "showcase") #能在前台看到R代码
 需要本地安装好依赖包。
 
 
-(3) 如果不想下载，也可以直接运行
+(3) 如果不想下载，也可以直接运行，缺点是无法设定IP和端口
 runGitHub( "<your repository name>", "<your user name>")
 
 runGitHub("shiny_GO", "DawnEve")
@@ -122,6 +122,6 @@ renderUI	a Shiny tag object or HTML
 # ref
 #######################################
 发现一个别人做的 https://github.com/szenitha/Shiny-Seq/tree/master/App
+# https://cloud.tencent.com/developer/article/1558051
 好复杂，没看懂。
-
 

@@ -18,8 +18,9 @@ shinyServer(function(input, output) {
 		genes=input$genes;
 
 		pP('Raw input: ', genes)
-		genes=strsplit(genes, '[^0-9a-zA-Z\\-]+')[[1]]
-		#length(genes)
+    pP('>>>>>>Time: ', Sys.time())
+		genes=strsplit(genes, '[^0-9a-zA-Z\\-\\.]+')[[1]]
+		#length(genes) #RP11-489E7.4, MT-ND5
 
 		# gene symbol to id
 		print('=============01_2 convert symbol to gene id (reactive)====================')
@@ -61,8 +62,18 @@ shinyServer(function(input, output) {
   	if(length(genes)<5){ return(''); }
   	#
   	kk=getKEGG()
-  	barplot(kk)
+  	barplot(kk, showCategory=20)
   })
+
+   # 点图
+  output$dotplotKEGG=renderPlot({
+    genes=getGene()
+    if(length(genes)<5){ return(''); }
+    #
+    kk=getKEGG()
+    dotplot(kk, showCategory=30)
+  })
+
   # 表格 simple
   output$KEGG_TableSimple=renderTable({
   	genes=getGene()
