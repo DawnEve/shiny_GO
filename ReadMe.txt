@@ -1,17 +1,28 @@
-# init
-# aim: a simply GO server based on clusterProfileR and shinny
+A simply GO server based on clusterProfiler and shinny
 
-###########
-# v0.1 can run at local cmd:
+
+#######################################
+# 运行方式
+#######################################
+(1) v0.1 can run at local cmd:
 D:\Program Files\R\R-3.6.1\bin>Rscript F:\\Temp\\shiny\\run.R
 Warning message:
 'shiny'R3.6.3
 
-
 runApp("census-app", display.mode = "showcase") #能在前台看到R代码
 
 
-发现一个别人做的 https://github.com/szenitha/Shiny-Seq/tree/master/App
+(2) 克隆到本地，修改run.R，设置IP和端口，
+运行run.R脚本即可。
+
+需要本地安装好依赖包。
+
+
+(3) 如果不想下载，也可以直接运行
+runGitHub( "<your repository name>", "<your user name>")
+
+runGitHub("shiny_GO", "DawnEve")
+
 
 
 
@@ -31,7 +42,6 @@ app-8/ bug demo:Bug demo: when hand input, Shiny can get the value from textArea
 		手工输入的shiny可以获取；但是js设置的值，shiny获取不到。
 		原因: 需要修改值后主动触发输入框的change事件。
 #
-
 
 
 
@@ -104,5 +114,14 @@ renderUI	a Shiny tag object or HTML
 
 
 
+
+
+
+
+#######################################
+# ref
+#######################################
+发现一个别人做的 https://github.com/szenitha/Shiny-Seq/tree/master/App
+好复杂，没看懂。
 
 
