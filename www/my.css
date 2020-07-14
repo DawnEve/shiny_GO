@@ -1,2 +1,5 @@
 /*body{ background:lightblue; }*/
 /*=========== 自定义css  ============*/
+
+#submit{background: #F66E4A; font-weight: bold; }
+#submit:hover{background: #E44D26; color:white;}

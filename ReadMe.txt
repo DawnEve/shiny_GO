@@ -26,6 +26,10 @@ app-3/ 使用了单文件 app.R，展示可用的组件。
 app-4/ 后台怎么响应前台的输入？前台显示代码 display.mode = "showcase"
 app-6/ 响应式加载数据reactive({})
 	输出表格
+app-7/ tabsetPanel 标签布局
+app-8/ bug demo:Bug demo: when hand input, Shiny can get the value from textAreaInput; but when js set values for textAreaInput, Shiny get nothing.
+		手工输入的shiny可以获取；但是js设置的值，shiny获取不到。
+		原因: 需要修改值后主动触发输入框的change事件。
 #
 
 

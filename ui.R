@@ -1,36 +1,53 @@
 library(shiny)
 
+
 shinyUI(fluidPage(
+  tags$script(src='my.js'),
+
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "my.css")
   ),
 
   # Application title
-  headerPanel("Shiny GO! v0.1"),
+  headerPanel("Shiny GO! v1.0"),
   
   # 侧面控件 Sidebar with a slider input for number of observations
   sidebarPanel(
-    selectInput("species", h3("Select species"), 
-                       choices = c("human", "mouse"), selected = 1),
+    selectInput("species", h3("Select species(暂不支持小鼠)"), 
+                       choices = c("human", "mouse"), selected = 'human'),
     textAreaInput("genes", h3("Input gene list"), 
-                     placeholder  = "Input gene symboles...", value="TP53 CCNE2", rows  =10),
-    #submitButton("submit", 'Submit')
-    actionButton("submit", "Submit"),
+                     placeholder  = "Please input gene symbols(at lest >5), seperated by blank, tab or one symbol per line.", 
+                     rows  =10),
+    actionButton("use_demo", 'Demo genes'), # 填充示例基因
+
+    actionButton("submit", "Submit"), #提交按钮
 
     hr(),
-    p('Input gene number: '),
-    textOutput('geneNumber')
+    #span('Input gene number: '),
+    #textOutput('geneNumber', inline=T)
+    HTML("<p>Input gene number: <span id='geneNumber'></span></p>")
   ),
   
   # 右边 主控件(默认右边) Show a plot of the generated distribution
   mainPanel(
-    # tableOutput("test"),
-    h2('Significant GO terms: Figure'),
-    plotOutput("plotGO"),
+    h2('enrichKEGG'),
+    tabsetPanel(type = "tabs",
+      tabPanel("barplotKEGG", plotOutput("barplotKEGG")),
+      tabPanel("Table(Simple)", tableOutput("KEGG_TableSimple")),
+      tabPanel("Table(Detail)", tableOutput("KEGG_Table"))
+    ),
 
     hr(),
-    h2('Significant GO terms: table'),
-    tableOutput("goTable")
+    h2('enrichGO'),
+    tabsetPanel(type = "tabs",
+      tabPanel("barplotGO_top20", plotOutput("barplotGO")),
+      tabPanel("dotplot_top30", plotOutput("dotplotGO")),
+      tabPanel("emapplot", plotOutput("emapplotGO")),
+      
+      tabPanel("Table(Simple)", tableOutput("goTableSimple")),
+      tabPanel("Table(Detail)", tableOutput("goTable"))
+    )
+
   )
 
 ))

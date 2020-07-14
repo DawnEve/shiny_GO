@@ -1,10 +1,9 @@
-getGO_FN=function(genes){ # input gene symbol
-    # gene symbol to id
-    gene.df <- bitr(genes, fromType="SYMBOL", toType=c("ENTREZID","ENSEMBL"), OrgDb="org.Hs.eg.db")
+getGO_FN=function(genes.ENTREZID){ # input gene symbol
+    
 
     ####
     ego <- enrichGO(
-	  gene          = gene.df$ENTREZID,
+	  gene          = genes.ENTREZID,
 	  keyType = "ENTREZID",  #'ENSEMBL'
 	  OrgDb         = org.Hs.eg.db,
 	  ont           = "all", #BP, CC, MF, or "ALL" for all three.
@@ -28,7 +27,35 @@ getGO_FN=function(genes){ # input gene symbol
 	return(ego)
 }
 
-
+# for html output of GO
 showDigit=function(arr){
 	ifelse(arr>0.01, round(arr,3), formatC(arr, format = "E", digits = 2) )
+}
+
+
+
+#----------------------------------
+# [暂时不用！]KEGG Gene Set Enrichment Analysis
+# 需要输入全基因和FC
+getKEGG_FN2=function(genes.ENTREZID){
+	#按照输入顺序，从高到低平均分配FC
+	geneList=rev( seq(-5,5, 10/length(genes.ENTREZID)) )
+	names(geneList)=genes.ENTREZID
+	#
+	kk <- gseKEGG(geneList     = geneList,
+               organism     = 'hsa',
+               nPerm        = 1000,
+               minGSSize    = 120,
+               pvalueCutoff = 0.05,
+               verbose      = FALSE)
+	return(kk)
+}
+
+# KEGG over-representation test
+# 输入small基因集
+getKEGG_FN=function(genes.ENTREZID){
+	kk <- enrichKEGG(gene         = genes.ENTREZID,
+	                 organism     = 'hsa',
+	                 pvalueCutoff = 0.05)
+	return(kk)
 }
