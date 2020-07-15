@@ -1,7 +1,7 @@
 library(shiny)
 
 # 学习 shiny用
-#runApp("F:\\Temp\\shiny\\app-8", host="0.0.0.0", port=8888, display.mode = "showcase")
+#runApp("F:\\Temp\\shiny\\app-5", host="0.0.0.0", port=8888, display.mode = "showcase")
 
 
 # GO 主程序

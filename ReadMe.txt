@@ -35,6 +35,8 @@ app-1/ 第一课，怎么添加html标签
 
 app-3/ 使用了单文件 app.R，展示可用的组件。
 app-4/ 后台怎么响应前台的输入？前台显示代码 display.mode = "showcase"
+app-5/ 对于单个不可分解耗时任务，怎么模拟一个进度条？
+app-5_2/ 进度条demo，适合能分解为若干步骤的操作
 app-6/ 响应式加载数据reactive({})
 	输出表格
 app-7/ tabsetPanel 标签布局
