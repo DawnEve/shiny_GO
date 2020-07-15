@@ -5,7 +5,8 @@ shinyUI(fluidPage(
   tags$script(src='my.js'),
 
   tags$head(
-    tags$link(rel = "stylesheet", type = "text/css", href = "my.css")
+    tags$link(rel = "stylesheet", type = "text/css", href = "my.css"),
+    HTML('<link rel="icon" href="data:image/ico;base64,aWNv">')
   ),
 
   # Application title
@@ -50,8 +51,8 @@ shinyUI(fluidPage(
       tabPanel("Table(Detail)", tableOutput("goTable"))
     ),
     hr(),
-    div(a('(Fork me at github) shiny_GO', href='https://github.com/dawneve/shiny_GO/', target="_blank"), 
-      class='githublink'),
+    div( HTML('&copy;2020. Fork me at github: '), a('shiny_GO', id="footerlink",
+      href='https://github.com/dawneve/shiny_GO/', target="_blank"), class='footer' ),
 
 
   )

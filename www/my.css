@@ -4,9 +4,7 @@
 #submit{background: #F66E4A; font-weight: bold; }
 #submit:hover{background: #E44D26; color:white;}
 
-#githublink a{
-	width:200px; margin:10px auto; color:#ccc;
-}
-#githublink a:hover{
-	color:#ccc;
-}
+.footer{ color:#ccc; width:300px; margin:10px auto; color:#ccc; }
+
+#footerlink{color:#ccc;}
+#footerlink:hover{ color:#F66E4A; }
