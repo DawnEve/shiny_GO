@@ -15,3 +15,4 @@ shiny_GO
 # v1.0.2 修正基因分离正则表达式，允许基因名字中有-和.出现; KEGG 加dotplot
 # v1.0.3 add 底部footer link
 # v1.0.4 进度条demo
+# v1.0.5 mv demo btn to the top
