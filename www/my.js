@@ -53,7 +53,9 @@ addEvent(window,'load',function(){
 
 	//单击提交时，控制台提示
 	$2('submit').onclick=function(){
-		console.log('Sumit now, begin GO ...')
+		var msg='Sumit now, begin GO ...<br>'+ new Date();
+		console.log(msg)
+		$2('msg').innerHTML=msg
 	}
 
 	//demo按钮 单击时填充示例

@@ -25,6 +25,7 @@ shinyUI(fluidPage(
 
     h3("Step3: Submit"),
     actionButton("submit", "Submit"), #提交按钮
+    p("", id="msg"),
   ),
   
   # 右边 主控件(默认右边) Show a plot of the generated distribution
