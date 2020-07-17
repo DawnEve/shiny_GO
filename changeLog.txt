@@ -16,3 +16,4 @@ shiny_GO
 # v1.0.3 add 底部footer link
 # v1.0.4 进度条demo
 # v1.0.5 mv demo btn to the top
+# v1.0.6 add console msg after submit

@@ -43,13 +43,17 @@ addEvent(window,'load',function(){
 		//console.log(arr)
 		//alert('Begin enrichment now, please waite.')
 	}
-	//提交按钮点击时，统计基因数量
 	$2('genes').onchange=countGeneNumber
 	$2('genes').onkeyup=countGeneNumber //抬起来键盘时
 
-	//输入框: 单击时全选
+	//输入框: 鼠标悬停时全选
 	$2('genes').onmouseover=function(){
 		this.select()
+	}
+
+	//单击提交时，控制台提示
+	$2('submit').onclick=function(){
+		console.log('Sumit now, begin GO ...')
 	}
 
 	//demo按钮 单击时填充示例

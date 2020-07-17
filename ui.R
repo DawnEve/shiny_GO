@@ -6,7 +6,7 @@ shinyUI(fluidPage(
 
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "my.css"),
-    HTML('<link rel="icon" href="data:image/ico;base64,aWNv">')
+    HTML('<link rel="icon" href="favicon.ico">')
   ),
 
   # Application title
