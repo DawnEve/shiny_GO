@@ -126,7 +126,7 @@ shinyServer(function(input, output) {
   	if(length(genes)<5){ return(''); }
   	#
   	ego=getGO()
-    write.table(ego, 'D://ego2020.txt')
+    #write.table(ego, 'D://ego2020.txt')
   	barplot(ego, showCategory=20)
   })
 
