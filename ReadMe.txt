@@ -46,6 +46,9 @@ app-8/ bug demo:Bug demo: when hand input, Shiny can get the value from textArea
 		原因: 需要修改值后主动触发输入框的change事件。
 #
 app-9/ 测试读取文件，并用ggplot2绘图
+	#theme( text = element_text(size = 20) ) 后台字体放大
+	前台改变图片高度 plotOutput("ggbar2", height = 800)
+#
 
 
 

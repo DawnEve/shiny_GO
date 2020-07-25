@@ -26,10 +26,9 @@ shinyServer(function(input, output) {
       theme_bw() + 
       scale_x_discrete(limits=rev(df$Description) ) + #限定x坐标的顺序
       xlab("") + ylab("-log10(adj.P.value)")+
-      theme(axis.text=element_text(face = "bold", color="gray50")) +
+      theme(axis.text=element_text(face = "bold", color="gray50"),
+        text = element_text(size = 20) ) + # 所有字体放大
       labs(title = "Significant Enriched GO Terms")
   })
-
-
 
 })
