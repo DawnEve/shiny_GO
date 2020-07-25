@@ -13,6 +13,7 @@ runApp("census-app", display.mode = "showcase") #能在前台看到R代码
 
 
 (2) 克隆到本地，修改run.R，设置IP和端口，
+git clone https://github.com/DawnEve/shiny_GO.git
 运行run.R脚本即可。
 
 需要本地安装好依赖包。

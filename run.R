@@ -1,9 +1,21 @@
+myArgs<-commandArgs(TRUE)
+mode=myArgs[1]
+if(!(mode %in% c('demo', 'win', 'linux') )){
+	stop("mode must in c('demo', 'win', 'linux')")
+}
+print(paste('>>> Shiny APP Runnig Mode: ', mode))
+
+
+########################
+# init
+########################
 library(shiny)
 
-# 学习 shiny用
-#runApp("F:\\Temp\\shiny\\app-9", host="0.0.0.0", port=8888, display.mode = "showcase")
-
-
-## GO 主程序
-runApp("F:\\Temp\\shiny", host="0.0.0.0", port=8888) # win
-#runApp("/home/wangjl/test/shiny_GO/", host="0.0.0.0", port=9993) # linux
+if(mode=='demo')
+	# 学习 shiny用
+	runApp("F:\\Temp\\shiny\\app-9", host="0.0.0.0", port=8888, display.mode = "showcase")
+else if(mode=='win')
+	## GO 主程序
+	runApp("F:\\Temp\\shiny", host="0.0.0.0", port=8888) # win
+else if(mode=='linux')
+	runApp("/home/wangjl/test/shiny_GO/", host="0.0.0.0", port=9993) # linux

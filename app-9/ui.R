@@ -19,7 +19,7 @@ shinyUI(fluidPage(
     h2('Tab bar plot'),
     tabsetPanel(type = "tabs",
       tabPanel("testTab", plotOutput("bar1")),
-      tabPanel("testTab2", plotOutput("bar2"))
+      tabPanel("ggHeight", plotOutput("ggbar2", height = 800)) #指定高度
       )
 
 

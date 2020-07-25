@@ -15,7 +15,7 @@ shinyServer(function(input, output) {
   })
 
   # ggplot bar plot
-  output$bar2=renderPlot({
+  output$ggbar2=renderPlot({
     ego=read.table('data/ego2020.txt', row.names=1)
     #arrange(qvalue) %>%
     df=ego %>%  group_by(ONTOLOGY) %>% filter(qvalue<0.05) %>% top_n(n=5, wt=-p.adjust)
