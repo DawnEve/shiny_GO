@@ -11,11 +11,13 @@ print(paste('>>> Shiny APP Runnig Mode: ', mode))
 ########################
 library(shiny)
 
-if(mode=='demo')
+if(mode=='demo'){
 	# 学习 shiny用
 	runApp("F:\\Temp\\shiny\\app-9", host="0.0.0.0", port=8888, display.mode = "showcase")
-else if(mode=='win')
-	## GO 主程序
-	runApp("F:\\Temp\\shiny", host="0.0.0.0", port=8888) # win
-else if(mode=='linux')
-	runApp("/home/wangjl/test/shiny_GO/", host="0.0.0.0", port=9993) # linux
+}else if(mode=='win'){
+	# GO on win, for develop
+	runApp("F:\\Temp\\shiny", host="0.0.0.0", port=8888)
+}else{
+	# GO on linux, for production
+	runApp("/home/wangjl/test/shiny_GO/", host="0.0.0.0", port=9993)
+}
