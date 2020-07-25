@@ -1,5 +1,5 @@
 library(shiny)
-
+library(ggplot2)
 
 shinyUI(fluidPage(
   tags$script(src='my.js'),
@@ -42,6 +42,7 @@ shinyUI(fluidPage(
     hr(),
     h2('enrichGO'),
     tabsetPanel(type = "tabs",
+      tabPanel("ggplot_bar", plotOutput("barplotGO_0")),
       tabPanel("barplotGO_top20", plotOutput("barplotGO")),
       tabPanel("dotplot_top30", plotOutput("dotplotGO")),
       tabPanel("emapplot", plotOutput("emapplotGO")),
@@ -52,8 +53,6 @@ shinyUI(fluidPage(
     hr(),
     div( HTML('&copy;2020. Fork me at github: '), a('shiny_GO', id="footerlink",
       href='https://github.com/dawneve/shiny_GO/', target="_blank"), class='footer' ),
-
-
   )
 
 ))

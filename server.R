@@ -1,5 +1,6 @@
 library(shiny)
 library(ggplot2)
+library('dplyr')
 
 library('clusterProfiler')
 library('org.Hs.eg.db')
@@ -102,12 +103,31 @@ shinyServer(function(input, output) {
 
 
 	#----------------GO 富集 
+  # ggplot bar plot
+  output$barplotGO_0=renderPlot({
+    genes=getGene()
+    if(length(genes)<5){ return(''); }
+    #
+    ego=getGO()
+    #arrange(qvalue) %>%
+    df=as.data.frame(ego) %>%  group_by(ONTOLOGY) %>% filter(qvalue<0.05) %>% top_n(n=5, wt=-p.adjust)
+    ggplot(df, aes(x=Description, y=-log10(p.adjust), fill=ONTOLOGY) ) +
+      geom_bar(stat="identity", width=0.8) + 
+      coord_flip() +  #反转x和y坐标轴
+      theme_bw() + 
+      scale_x_discrete(limits=rev(df$Description) ) + #限定x坐标的顺序
+      xlab("") + ylab("-log10(adj.P.value)")+
+      theme(axis.text=element_text(face = "bold", color="gray50")) +
+      labs(title = "Significant Enriched GO Terms")
+  })
+
    # 条状图
   output$barplotGO=renderPlot({
   	genes=getGene()
   	if(length(genes)<5){ return(''); }
   	#
   	ego=getGO()
+    write.table(ego, 'D://ego2020.txt')
   	barplot(ego, showCategory=20)
   })
 
@@ -127,6 +147,7 @@ shinyServer(function(input, output) {
   	ego=getGO()
   	emapplot(ego)
   })
+
 
 
   # 表格 simple

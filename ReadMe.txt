@@ -32,7 +32,7 @@ runGitHub("shiny_GO", "DawnEve")
 app-1/ 第一课，怎么添加html标签
 	www/ 内可以放静态文件 image/js/css/text 等等。
 	img(src = "my_image.png", height = 72, width = 72)
-
+app-2/ 聚类算法 kmeans, hclust
 app-3/ 使用了单文件 app.R，展示可用的组件。
 app-4/ 后台怎么响应前台的输入？前台显示代码 display.mode = "showcase"
 app-5/ 对于单个不可分解耗时任务，怎么模拟一个进度条？
@@ -44,6 +44,8 @@ app-8/ bug demo:Bug demo: when hand input, Shiny can get the value from textArea
 		手工输入的shiny可以获取；但是js设置的值，shiny获取不到。
 		原因: 需要修改值后主动触发输入框的change事件。
 #
+app-9/ 测试读取文件，并用ggplot2绘图
+
 
 
 
