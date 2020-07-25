@@ -109,8 +109,7 @@ shinyServer(function(input, output) {
     if(length(genes)<5){ return(''); }
     #
     ego=getGO()
-    #arrange(qvalue) %>%
-    df=as.data.frame(ego) %>%  group_by(ONTOLOGY) %>% filter(qvalue<0.05) %>% top_n(n=5, wt=-p.adjust)
+    df=as.data.frame(ego) %>%  group_by(ONTOLOGY) %>% filter(p.adjust<0.05) %>% top_n(n=5, wt=-p.adjust)
     ggplot(df, aes(x=Description, y=-log10(p.adjust), fill=ONTOLOGY) ) +
       geom_bar(stat="identity", width=0.8) + 
       coord_flip() +  #反转x和y坐标轴

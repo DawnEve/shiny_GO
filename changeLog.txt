@@ -19,3 +19,4 @@ shiny_GO
 # v1.0.6 add console msg after submit
 # v1.0.7 add web msg after submit
 # v1.0.8 测试ggplot绘图,画GO图
+v1.0.9 fix
